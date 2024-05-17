@@ -21,13 +21,13 @@ resource "aws_route_table" "service-provider-private-rt" {
 
   
   # Removes routes to internet after updaes of private ec2 instance in private az
-  route = []
+  # route = []
   
   #   Allows routes to the internet for updates ONLY.   Disable once the updates is complete
-  # route {
-  #   cidr_block = "0.0.0.0/0"
-  #   gateway_id = aws_nat_gateway.nat-gw.id
-  # }
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_nat_gateway.nat-gw.id
+  }
 
   tags = {
     Name = "service-provider-private-rt"

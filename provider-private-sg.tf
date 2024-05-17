@@ -6,11 +6,20 @@ resource "aws_security_group" "provider-sg" {
 
   ingress {
     # description     = "SSH From Anywhere or Your-IP"
-    from_port       = 22
-    to_port         = 22
+    from_port       = 21
+    to_port         = 21
     protocol        = "tcp"
     security_groups = [aws_security_group.provider-pub-ec2-sg.id]
   }
+
+    ingress {
+        description     = "HTTP From Anywhere"
+        from_port       = "80"
+        to_port         = "80"
+        protocol        = "tcp"
+        cidr_blocks     = ["0.0.0.0/0"] 
+    }
+
 }
 
 

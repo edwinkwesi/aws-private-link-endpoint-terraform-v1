@@ -10,7 +10,7 @@ resource "aws_instance" "consumer-private-ec2" {
     # user_data = filebase64("user-data.sh")
     
     tags = {
-        Name = "provider-private-ec2"
+        Name = "consumer-private-ec2"
     }
 
 }
